@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="3mJ-18-4z6">
             <objects>
-                <viewController id="5ha-4u-4od" customClass="ViewController" customModule="Thunderstorm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5ha-4u-4od" customClass="RootViewController" customModule="Thunderstorm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v8P-YI-fIA"/>
                         <viewControllerLayoutGuide type="bottom" id="rYh-J8-xb3"/>
@@ -20,12 +20,38 @@
                     <view key="view" contentMode="scaleToFill" id="0m4-df-Poj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="n74-6U-AvT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tRT-48-bvL">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="5ha-4u-4od" id="ENh-A5-vrg"/>
+                                    <outlet property="delegate" destination="5ha-4u-4od" id="5Xl-Pp-4Ag"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="n74-6U-AvT" firstAttribute="top" secondItem="0m4-df-Poj" secondAttribute="top" id="JJU-Xe-gd6"/>
+                            <constraint firstAttribute="trailing" secondItem="n74-6U-AvT" secondAttribute="trailing" id="VzL-da-UNp"/>
+                            <constraint firstItem="n74-6U-AvT" firstAttribute="leading" secondItem="0m4-df-Poj" secondAttribute="leading" id="e2C-t9-Jkh"/>
+                            <constraint firstItem="rYh-J8-xb3" firstAttribute="top" secondItem="n74-6U-AvT" secondAttribute="bottom" id="e2k-xQ-che"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="n74-6U-AvT" id="TVV-kx-7fB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JXG-jF-cRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="150" y="144"/>
+            <point key="canvasLocation" x="149.59999999999999" y="143.47826086956522"/>
         </scene>
     </scenes>
 </document>
